@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dr. Abdulkarim Al-Muhammad - Expert Programmer & University Lecturer Specialized in Blockchain, Web3, and Industrial Control Systems">
+  <meta property="og:title" content="Dr. Abdulkarim Al-Muhammad | Blockchain & Web3 Expert">
+  <meta property="og:description" content="PhD in Control & Automation Engineering • University Lecturer • Software Developer • Blockchain & Web3 Developer • Industrial Control Systems">
+  <meta property="og:image" content="profile.jpg">
+  <meta property="og:url" content="https://abdalkarim.dev">
+  <meta property="og:type" content="website">
+
+  <title>Dr. Abdulkarim Al-Muhammad | Blockchain & Web3 Expert</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+  <style>
+    :root {
+      --primary: #1a73e8;
+      --primary-dark: #0d47a1;
+      --accent: #00c853;
+      --text: #2d3436;
+      --bg: #f8fffe;
+      --card-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Cairo', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #f0f7ff, #e3f2fd);
+      color: var(--text);
+      line-height: 1.8;
+      transition: all 0.3s ease;
+    }
+
+    body.rtl {
+      direction: rtl;
+    }
+
+    header {
+      background: linear-gradient(135deg, var(--primary), #4285f4);
+      color: white;
+      padding: 80px 20px;
+      text-align: center;
+      box-shadow: 0 8px 32px rgba(26, 115, 232, 0.3);
+    }
+    header h1 { font-size: 3rem; margin: 0 0 15px; font-weight: 900; }
+    header .title { font-size: 1.5rem; opacity: 0.95; margin: 10px 0; }
+    header .badge {
+      display: inline-block;
+      background: #ff1744;
+      color: white;
+      padding: 6px 16px;
+      border-radius: 50px;
+      font-size: 0.9rem;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+
+    nav a { margin: 0 20px; color: white; text-decoration: none; font-weight: 600; font-size: 1.15rem; padding: 10px 0; position: relative; }
+    nav a::after { content: ''; position: absolute; width: 0; height: 3px; background: #fff; bottom: 0; left: 0; transition: width 0.4s; }
+    nav a:hover::after { width: 100%; }
+
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+    section { padding: 90px 20px; }
+
+    .card {
+      background: white;
+      padding: 45px 35px;
+      margin: 30px auto;
+      max-width: 900px;
+      border-radius: 20px;
+      box-shadow: var(--card-shadow);
+      opacity: 0;
+      transform: translateY(60px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .card.show { opacity: 1; transform: translateY(0); }
+
+    .profile-img {
+      width: 220px;
+      height: 240px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 8px solid white;
+      box-shadow: 0 15px 40px rgba(26, 115, 232, 0.4);
+    }
+
+    h2 {
+      color: var(--primary);
+      font-size: 2.4rem;
+      margin-bottom: 30px;
+      position: relative;
+      display: inline-block;
+    }
+    h2::after {
+      content: '';
+      position: absolute;
+      width: 80px;
+      height: 5px;
+      background: var(--primary);
+      bottom: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      border-radius: 3px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin: 40px 0;
+    }
+    .skill-category {
+      background: #f0f7ff;
+      padding: 25px;
+      border-radius: 16px;
+      border-left: 5px solid var(--primary);
+    }
+    .skill-category h3 { color: var(--primary); margin: 0 0 20px 0; font-size: 1.4rem; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+    .skill-tag {
+      background: white;
+      color: var(--primary-dark);
+      padding: 8px 16px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      border: 2px solid var(--primary);
+      box-shadow: 0 4px 10px rgba(26, 115, 232, 0.1);
+    }
+
+    .research-badge {
+      background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+      color: white;
+      padding: 12px 24px;
+      border-radius: 50px;
+      display: inline-block;
+      margin: 10px 8px;
+      font-weight: bold;
+    }
+
+    .social-icons a { margin: 0 18px; color: var(--primary); font-size: 32px; transition: all 0.3s; }
+    .social-icons a:hover { color: var(--primary-dark); transform: translateY(-5px) scale(1.1); }
+
+    .btn {
+      display: inline-block;
+      padding: 16px 36px;
+      margin: 20px 10px 0 0;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.4s;
+      box-shadow: 0 8px 25px rgba(26, 115, 232, 0.4);
+    }
+    .btn:hover {
+      background: var(--primary-dark);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 35px rgba(13, 71, 161, 0.5);
+    }
+
+    footer {
+      background: #0d47a1;
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+      font-size: 1.1rem;
+    }
+
+    /* Language Toggle Button */
+    .lang-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+      background: white;
+      border: 2px solid var(--primary);
+      border-radius: 50px;
+      padding: 8px 16px;
+      font-weight: 600;
+      color: var(--primary);
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s;
+    }
+    
+    .lang-toggle:hover {
+      background: var(--primary);
+      color: white;
+    }
+    
+    body.rtl .lang-toggle {
+      right: auto;
+      left: 20px;
+    }
+
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.4rem; }
+      .skills-grid { grid-template-columns: 1fr; }
+      .lang-toggle {
+        top: 10px;
+        right: 10px;
+      }
+      body.rtl .lang-toggle {
+        right: auto;
+        left: 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <button class="lang-toggle" id="langToggle">العربية</button>
+
+  <header>
+    <div class="container">
+      <h1 data-i18n="name">Dr. Abdulkarim Al-Muhammad</h1>
+      <p class="title" data-i18n="title">Expert Programmer • PhD in Control & Automation Engineering • University Lecturer</p>
+      <p style="font-size:1.3rem; margin:15px 0;" data-i18n="specialization">Specialized in Blockchain & Web3 • Advanced Software Development • Industrial Control Systems</p>
+      <span class="badge" data-i18n="badge">PhD | University Lecturer | Blockchain Expert</span>
+    </br>
+    </br>
+      <nav>
+        <a href="#about" data-i18n="nav.about">About</a>
+        <a href="#skills" data-i18n="nav.skills">Skills</a>
+        <a href="#research" data-i18n="nav.research">Research</a>
+        <a href="#projects" data-i18n="nav.projects">Projects</a>
+        <a href="#contact" data-i18n="nav.contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <div class="card">
+        <img src="profile.jpg" alt="Dr. Abdulkarim Al-Muhammad" class="profile-img">
+        <h2 data-i18n="about.title">About Me</h2>
+        <p style="font-size:1.2rem; line-height:2;" data-i18n="about.description">
+          I am an expert programmer and university lecturer with a <strong>PhD in Control and Automation Engineering</strong>. I have extensive experience in software development, industrial control systems design, and deep expertise in <strong>Blockchain and Web3</strong> technologies.<br><br>
+          I have worked on diverse projects including web applications, mobile apps, complex databases, and smart contracts. I excel at solving complex problems and delivering innovative, efficient software solutions.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" style="background: rgba(26, 115, 232, 0.05);">
+    <div class="container">
+      <div class="card">
+        <h2 data-i18n="skills.title">Technical Skills</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h3><i class="fas fa-code"></i> <span data-i18n="skills.categories.programming">Programming Languages</span></h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Python</span>
+              <span class="skill-tag">Java</span>
+              <span class="skill-tag">C/C++</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">Solidity</span>
+              <span class="skill-tag">PHP</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3><i class="fas fa-coins"></i> <span data-i18n="skills.categories.blockchain">Blockchain & Web3</span></h3>
+            <div class="skill-tags">
+              <span class="skill-tag">Smart Contracts</span>
+              <span class="skill-tag">Ethereum</span>
+              <span class="skill-tag">Solidity</span>
+              <span class="skill-tag">Web3.js</span>
+              <span class="skill-tag">DApps</span>
+              <span class="skill-tag">DeFi</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3><i class="fas fa-microchip"></i> <span data-i18n="skills.categories.control">Control Systems</span></h3>
+            <div class="skill-tags">
+              <span class="skill-tag">PLC Programming</span>
+              <span class="skill-tag">SCADA Systems</span>
+              <span class="skill-tag">Industrial Automation</span>
+              <span class="skill-tag">Embedded Systems</span>
+            </div>
+          </div>
+          <div class="skill-category">
+            <h3><i class="fas fa-globe"></i> <span data-i18n="skills.categories.web">Web Development</span></h3>
+            <div class="skill-tags">
+              <span class="skill-tag">HTML/CSS</span>
+              <span class="skill-tag">JavaScript</span>
+              <span class="skill-tag">React.js</span>
+              <span class="skill-tag">Node.js</span>
+              <span class="skill-tag">PHP & MySQL</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="research">
+    <div class="container">
+      <div class="card">
+        <h2 data-i18n="research.title">Academic & Research Achievements</h2>
+        <p style="font-size:1.2rem;">
+          <strong data-i18n="research.degree">PhD in Control & Automation Engineering</strong> • <span data-i18n="research.lecturer">University Lecturer</span> • <span data-i18n="research.active">Active Researcher in</span>:<br>
+          <span class="research-badge" data-i18n="research.areas.blockchain">Blockchain Security</span>
+          <span class="research-badge" data-i18n="research.areas.contracts">Smart Contracts Optimization</span>
+          <span class="research-badge" data-i18n="research.areas.iot">Industrial IoT</span>
+          <span class="research-badge" data-i18n="research.areas.systems">Distributed Systems</span>
+          <span class="research-badge" data-i18n="research.areas.verification">Formal Verification</span>
+        </p>
+        <p style="margin-top: 20px;">
+          <a href="https://orcid.org/0009-0008-6187-3186" target="_blank" class="btn" data-i18n="research.orcid">View ORCID Profile</a>
+          <a href="https://scholar.google.com/citations?hl=en&user=_bo41QcAAAAJ" target="_blank" class="btn" data-i18n="research.scholar">Google Scholar</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" style="background: rgba(26, 115, 232, 0.05);">
+    <div class="container">
+      <div class="card">
+        <h2 data-i18n="projects.title">Notable Projects</h2>
+        <ul style=" font-size:1.15rem; line-height:2.2;">
+          <li data-i18n="projects.list.item1">Developed smart contracts for a DeFi platform (Ethereum + Solidity)</li>
+          <li data-i18n="projects.list.item2">Web3 application for digital asset management (React + Web3.js)</li>
+          <li data-i18n="projects.list.item3">High-performance distributed database system</li>
+          <li data-i18n="projects.list.item4">Mobile applications (iOS & Android)</li>
+          <li data-i18n="projects.list.item5">Artificial Intelligence applications</li>
+          <li data-i18n="projects.list.item6">Integrated industrial control system using PLC and SCADA</li>
+        </ul>
+        <p style="margin-top: 25px;">
+          <a href="https://github.com/Abdalkarim1979" target="_blank" class="btn" data-i18n="projects.github">View Projects on GitHub</a>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <div class="card">
+        <h2 data-i18n="contact.title">Get in Touch</h2>
+        <p data-i18n="contact.description">Available for technical consulting • Research collaborations • Software development projects</p>
+        <div class="social-icons">
+          <a href="https://github.com/Abdalkarim1979" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <a href="https://www.linkedin.com/in/abdulkarim-almuhammad-98407916a" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.facebook.com/profile.php?id=100006395073183" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+          <a href="mailto:abdalkarim1979@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p data-i18n="footer"> Dr. Abdulkarim Al-Muhammad • abdalkarim1979@gmail.com • All rights reserved©2025</p>
+  </footer>
+
+  <script>
+    // Language data
+    const translations = {
+      en: {
+        "name": "Dr. Abdulkarim Al-Muhammad",
+        "title": "Expert Programmer • PhD in Control & Automation Engineering • University Lecturer",
+        "specialization": "Specialized in Blockchain & Web3 • Advanced Software Development • Industrial Control Systems",
+        "badge": "PhD | University Lecturer | Blockchain Expert",
+        "nav.about": "About",
+        "nav.skills": "Skills",
+        "nav.research": "Research",
+        "nav.projects": "Projects",
+        "nav.contact": "Contact",
+        "about.title": "About Me",
+        "about.description": "I am an expert programmer and university lecturer with a <strong>PhD in Control and Automation Engineering</strong>. I have extensive experience in software development, industrial control systems design, and deep expertise in <strong>Blockchain and Web3</strong> technologies.<br><br>I have worked on diverse projects including web applications, mobile apps, complex databases, and smart contracts. I excel at solving complex problems and delivering innovative, efficient software solutions.",
+        "skills.title": "Technical Skills",
+        "skills.categories.programming": "Programming Languages",
+        "skills.categories.blockchain": "Blockchain & Web3",
+        "skills.categories.control": "Control Systems",
+        "skills.categories.web": "Web Development",
+        "research.title": "Academic & Research Achievements",
+        "research.degree": "PhD in Control & Automation Engineering",
+        "research.lecturer": "University Lecturer",
+        "research.active": "Active Researcher in",
+        "research.areas.blockchain": "Blockchain Security",
+        "research.areas.contracts": "Smart Contracts Optimization",
+        "research.areas.iot": "Industrial IoT",
+        "research.areas.systems": "Distributed Systems",
+        "research.areas.verification": "Formal Verification",
+        "research.orcid": "View ORCID Profile",
+        "research.scholar": "Google Scholar",
+        "projects.title": "Notable Projects",
+        "projects.list.item1": "Developed smart contracts for a DeFi platform (Ethereum + Solidity)",
+        "projects.list.item2": "Web3 application for digital asset management (React + Web3.js)",
+        "projects.list.item3": "High-performance distributed database system",
+        "projects.list.item4": "Mobile applications (iOS & Android)",
+        "projects.list.item5": "Artificial Intelligence applications",
+        "projects.list.item6": "Integrated industrial control system using PLC and SCADA",
+        "projects.github": "View Projects on GitHub",
+        "contact.title": "Get in Touch",
+        "contact.description": "Available for technical consulting • Research collaborations • Software development projects",
+        "footer": " Dr. Abdulkarim Al-Muhammad •  All rights reserved © 2025 "
+      },
+      ar: {
+        "name": "د. عبد الكريم المحمد",
+        "title": "مبرمج خبير • دكتوراه في هندسة التحكم والأتمتة • محاضر جامعي",
+        "specialization": "متخصص في بلوكشين وويب 3 • تطوير برمجيات متقدم • أنظمة التحكم الصناعية",
+        "badge": "دكتوراه | محاضر جامعي | خبير بلوكشين",
+        "nav.about": "عنّي",
+        "nav.skills": "المهارات",
+        "nav.research": "البحث العلمي",
+        "nav.projects": "المشاريع",
+        "nav.contact": "اتصل بي",
+        "about.title": "عنّي",
+        "about.description": "أنا مبرمج خبير ومحاضر جامعي حاصل على <strong>دكتوراه في هندسة التحكم والأتمتة</strong>. لدي خبرة واسعة في تطوير البرمجيات، تصميم أنظمة التحكم الصناعية، وخبرة عميقة في تقنيات <strong>البلوكشين والويب 3</strong>.<br><br>لقد عملت على مشاريع متنوعة تشمل تطبيقات الويب، تطبيقات الجوال، قواعد البيانات المعقدة، والعقود الذكية. أتميز في حل المشكلات المعقدة وتقديم حلول برمجية مبتكرة وفعالة.",
+        "skills.title": "المهارات التقنية",
+        "skills.categories.programming": "لغات البرمجة",
+        "skills.categories.blockchain": "البلوكشين والويب 3",
+        "skills.categories.control": "أنظمة التحكم",
+        "skills.categories.web": "تطوير الويب",
+        "research.title": "الإنجازات الأكاديمية والبحثية",
+        "research.degree": "دكتوراه في هندسة التحكم والأتمتة",
+        "research.lecturer": "محاضر جامعي",
+        "research.active": "باحث نشط في",
+        "research.areas.blockchain": "أمن البلوكشين",
+        "research.areas.contracts": "تحسين العقود الذكية",
+        "research.areas.iot": "إنترنت الأشياء الصناعي",
+        "research.areas.systems": "الأنظمة الموزعة",
+        "research.areas.verification": "التحقق الشكلي",
+        "research.orcid": "عرض ملف ORCID",
+        "research.scholar": "باحث جوجل",
+        "projects.title": "المشاريع البارزة",
+        "projects.list.item1": "تطوير عقود ذكية لمنصة DeFi (Ethereum + Solidity)",
+        "projects.list.item2": "تطبيق ويب 3 لإدارة الأصول الرقمية (React + Web3.js)",
+        "projects.list.item3": "نظام قاعدة بيانات موزع عالي الأداء",
+        "projects.list.item4": "تطبيقات الجوال (iOS و Android)",
+        "projects.list.item5": "تطبيقات الذكاء الاصطناعي",
+        "projects.list.item6": "نظام تحكم صناعي متكامل باستخدام PLC و SCADA",
+        "projects.github": "عرض المشاريع على GitHub",
+        "contact.title": "اتصل بي",
+        "contact.description": "متاح للاستشارات التقنية • تعاونات بحثية • مشاريع تطوير برمجيات",
+        "footer": "  د. عبد الكريم المحمد •    جميع الحقوق محفوظة© 2025"
+
+
+      }
+    };
+
+    // Language toggle functionality
+    const langToggle = document.getElementById('langToggle');
+    let currentLang = 'en';
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      document.documentElement.lang = lang;
+      
+      // Update text direction
+      if (lang === 'ar') {
+        document.body.classList.add('rtl');
+        document.body.style.textAlign = 'right';
+        langToggle.textContent = 'English';
+      } else {
+        document.body.classList.remove('rtl');
+        document.body.style.textAlign = 'left';
+        langToggle.textContent = 'العربية';
+      }
+      
+      // Update all elements with data-i18n attribute
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+            element.value = translations[lang][key];
+          } else {
+            element.innerHTML = translations[lang][key];
+          }
+        }
+      });
+      
+      // Save language preference
+      localStorage.setItem('preferredLang', lang);
+    }
+
+    // Toggle language on button click
+    langToggle.addEventListener('click', () => {
+      const newLang = currentLang === 'en' ? 'ar' : 'en';
+      setLanguage(newLang);
+    });
+
+    // Initialize language on page load
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedLang = localStorage.getItem('preferredLang') || 'en';
+      setLanguage(savedLang);
+    });
+
+    // Animation for cards
+    const cards = document.querySelectorAll('.card');
+    const checkCards = () => {
+      const triggerBottom = window.innerHeight * 0.85;
+      cards.forEach(card => {
+        if (card.getBoundingClientRect().top < triggerBottom) {
+          card.classList.add('show');
+        }
+      });
+    };
+    window.addEventListener('scroll', checkCards);
+    window.addEventListener('load', checkCards);
+  </script>
+</body>
+</html>
