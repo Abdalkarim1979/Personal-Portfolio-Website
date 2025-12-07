@@ -1,6 +1,6 @@
 Personal Portfolio Website
 
-Live Website: https://abdalkarim.dev
+Live Website: https://drabdulkarimalmuhammad.vercel.app/
 
 Modern, clean, and fully responsive personal portfolio website for Dr. Abdulkarim Al-Muhammad – University Lecturer, PhD in Control & Automation Engineering, Blockchain & Web3 Expert.
 
